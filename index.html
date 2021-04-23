@@ -1,0 +1,424 @@
+<html><head></head><body><p></p>
+<table border="1" style="width: 818px;">
+<tbody>
+<tr>
+<td style="width: 806px;" colspan="3"><h3>Alejandro Cevallos Bigalli</h3></td>
+</tr>
+<tr>
+<td style="width: 806px;" colspan="3">A905351</td>
+</tr>
+<tr> 
+<td style="width: 806px;" colspan="3">Click here to go to the <a href='Menu.html'>Menu</td>
+</tr>
+
+<tr>
+<td style="width: 806px;" colspan="3">Function 1: <b><a href='EmpLogIn'>LogIn</a> as an employee</b></td>
+</tr>
+<tr>
+<td style="width: 87px;"></td>
+<td style="width: 719px;" colspan="2"><b>Description:</b><br>This function allows to enter the application tools as a manager, here we have determined Usernames and Passwords to access. To enter as a Manager you will need the following<br><br>USERNAME: <b>acevallos@bv.es</b><br>PASSWORD: <b>acbv123</b><br> <br>If you try other combinations, for instante, Username: pedro, Password: 123, The page will be reloaded with a message at the top, indicating there is a Log In error</td>
+</tr>
+<tr>
+<td style="width: 87px;"></td>
+<td style="width: 719px;" colspan="2"><b>Use:</b><br>The Servlet EmpLogIn calls CheckEmpLogin (which was coded to work both for Customer LogIn or Employee LogIn). It checks that the username exists, and is registered as a maneger, and then shows the main screen of the employee, which is EmpScreen in the servlets.<br><br>It uses: "EmpLogIn", "CheckEmpLogin", and "EmpScreen".</td>
+</tr>
+<tr>
+<td style="width: 87px;"></td>
+<td style="width: 220px;">EmpLogIn.java</td>
+<td style="width: 499px;">In this servlet, the manager must type the username and password, and then click the Sign In button. Try:<br><br>USERNAME: <b>acevallos@bv.es</b><br>PASSWORD: <b>acbv123</b></td>
+</tr>
+<tr>
+<td style="width: 87px;"></td>
+<td style="width: 220px;">EmpScreen.java</td>
+<td style="width: 499px;">This servlet displays the main menu of the employee, once he/she has logged in. It shows different options to move through the application.</td>
+</tr>
+<tr>
+<td style="width: 87px;"></td>
+<td style="width: 220px;">CheckEmpLogin.java</td>
+<td style="width: 499px;">This servlet searches in the database for the user and the password. If there is a match (a user is found) the servlet redirects the user to the EmpScreen, if there is no username, or the password is incorrect, it reloads the Log In page, and correct credentials must be put.</td>
+</tr>
+<tr>
+<td style="width: 806px;" colspan="3">Function 2: <b>LogOut</b></td>
+</tr>
+<td style="width: 87px;"></td>
+<td style="width: 719px;" colspan="2"><b>Description:</b><br> This function Logs the manager out of the account, and redirects him/her to the main menu.</td>
+</tr>
+<tr>
+<td style="width: 87px;"></td>
+<td style="width: 719px;" colspan="2"><b>Use:</b><br>The Servlet breaks the connection with the database, and the Manager must log in again to enter the application<br>It uses "LogOut".</td>
+</tr>
+<tr>
+<td style="width: 87px;"></td>
+<td style="width: 220px;">LogOut.java</td>
+<td style="width: 499px;">It breaks the connection with the database, and redirects the user to the main menu. </td>
+</tr>
+
+
+
+<td style="width: 806px;" colspan="3">Function 3: <b>Change Personal Information and Password</b></td>
+</tr>
+<tr>
+<td style="width: 87px;"></td>
+<td style="width: 719px;" colspan="2"><b>Description:</b><br> This servlet shows the main menu of the employee and presents a picture of the manager, folowed by his/her name, and two buttons, that open one table each. The first one displays the general information about the manager, which can be there updated, and the second one displays the username and password, and lets the password be updated.<br><br>A test can be to change the Address, for example, to Orlando, just to see how it works.<br>To see the password change, you can change it to "<b>ac123</b>", for example.</td>
+</tr>
+<tr>
+<td style="width: 87px;"></td>
+<td style="width: 719px;" colspan="2"><b>Use:</b><br>The Servlet loads the information about the manager, as well as the password and username, through JavaScript archives.<br><br>It uses: "personalInfo2", "accountInfo2", "ManagerData" and "GetManagerInformation".</td>
+</tr>
+<tr>
+<td style="width: 87px;"></td>
+<td style="width: 220px;">GetManagerInfo.java</td>
+<td style="width: 499px;">This servlet crates a manager object, with all the information of the manager, which is called by each of the .js archives.</td>
+</tr>
+<tr>
+<td style="width: 87px;"></td>
+<td style="width: 220px;">ManagerData.java</td>
+<td style="width: 499px;">This servlet created different classes to make sql statements and create different objects (GetManagerInfo calls a class created in this servlet).</td>
+</tr>
+<tr>
+<td style="width: 87px;"></td>
+<td style="width: 220px;">accountInfo2.js</td>
+<td style="width: 499px;">This js file calls GetManagerInfo and creates a table with inputs to change the personal information about the manager.</td>
+</tr><tr>
+<td style="width: 87px;"></td>
+<td style="width: 220px;">personalInfo2.js</td>
+<td style="width: 499px;">This js file calls GetManagerInfo and creates a table with an input to change the password.</td>
+</tr>
+
+
+
+
+<td style="width: 806px;" colspan="3">Function 4:<b> Employee display </b></td>
+</tr>
+<tr>
+<td style="width: 87px;"></td>
+<td style="width: 719px;" colspan="2"><b>Description:</b><br>This function prints all the employees that work in a similar area. There are 5 possible working areas: Cleaning, Restaurant, Rooms, Pool, and Halls. Each one of these can be accessed from the left side of the application, from the sidebar menu.</td>
+</tr>
+<tr>
+<td style="width: 87px;"></td>
+<td style="width: 719px;" colspan="2"><b>Use:</b><br>The servlet calls one of the class created in EmployeeData, that select (through sql) all the employees regarding each area.<br><br>It uses: "Cleaning", "Restaurant", "Rooms", "Pool", "Halls", and "EmployeeData".</td>
+</tr>
+<tr>
+<td style="width: 87px;"></td>
+<td style="width: 220px;">Cleaning.java<br>Restaurant.java<br>Rooms.java<br>Pool.java<br>Halls.java<br></td>
+<td style="width: 499px;">Prints all the employees that work in each of the areas.<br></td>
+</tr><tr>
+<td style="width: 87px;"></td>
+<td style="width: 220px;">EmployeeData.java</td>
+<td style="width: 499px;">Creates a class that selects all the information about an employee from a determined area.<br></td>
+</tr>
+
+
+
+<td style="width: 806px;" colspan="3">Function 5:<b> Employee Edit </b></td>
+</tr>
+<tr>
+<td style="width: 87px;"></td>
+<td style="width: 719px;" colspan="2"><b>Description:</b><br>This function edits the general information of a selected employee. The parameters that can be changed are Name, Last Name, and Area. The ID is unchangeable. Once the employee is edited, it is changed in the table it was from, and in the case that the name was changed, you will see that too in the "Survey" table.<br>To see how this works, you can edit <br>"<b>Sam Wilson</b>"<br> in Restaurant, and change his general information, such as name, surname, or area of work.<br>To see if the name changes in the Surveys table, you can add a letter to the name and surname, for example "<b>Samu Wilsons</b>"</td>
+</tr>
+<tr>
+<td style="width: 87px;"></td>
+<td style="width: 719px;" colspan="2"><b>Use:</b><br>The servlet calls one of the classs created in EmployeeData, that updates (through sql) all the parameters of an employee which were updated.<br><br>It uses: "EditEmployee", "EmployeeData", "SurveyData", and "EmployeeUpdate".</td>
+</tr>
+<tr>
+<td style="width: 87px;"></td>
+<td style="width: 220px;">EditEmployee.java</td>
+<td style="width: 499px;">Opens a form with inputs to change the main information about the employee.</td>
+</tr>
+<tr>
+<td style="width: 87px;"></td>
+<td style="width: 220px;">EmployeeData.java</td>
+<td style="width: 499px;">Creates a class that updates the information of the database, in the Employees table.</td>
+</tr><tr>
+<td style="width: 87px;"></td>
+<td style="width: 220px;">SurveyData.java</td>
+<td style="width: 499px;">Creates a class that inserts the information into the database, into de Surveys table.</td>
+</tr>
+<tr>
+<td style="width: 87px;"></td>
+<td style="width: 220px;">EmployeeUpdate.java</td>
+<td style="width: 499px;">Saves the changes into the database, creating objects of SurveyData and EmployeeData, calling the classes created by SurveyData and EmployeeData.</td>
+</tr>
+
+<td style="width: 806px;" colspan="3">Function 6:<b> Add New Employee </b></td>
+</tr>
+<tr>
+<td style="width: 87px;"></td>
+<td style="width: 719px;" colspan="2"><b>Description:</b><br>This function allows the user to create a new employee, checking with AJAX that the username that was introduced doesn't already exist. Additionally, it checks that the ID is 5 characters long. <br>To try the Ajax function, you can type <b>IN UPPERCASE</b><br><br><b>TS321</b><br><br>It should disable the submit button, and display a message in red.<br>To try an ID that is valid you can type<br><br><b>ZZ999</b><br><br>It should enable the submit button, and a green message should appear.</td>
+</tr>
+<tr>
+<td style="width: 87px;"></td>
+<td style="width: 719px;" colspan="2"><b>Use:</b><br>The servlet calls one of the classs created in EmployeeData, that inserts (through sql) all the parameters of an employee in the database.<br><br>It uses: "InsertNewEmployee", "InsertEmployee", "EmployeeData", "CheckUserAjax", and "checkAjax.js".</td></td>
+</tr>
+<tr>
+<td style="width: 87px;"></td>
+<td style="width: 220px;">InsertNewEmployee.java</td>
+<td style="width: 499px;">It prints a form with input values (and textareas) where all the information about the new employee is included.<br></td>
+</tr>
+<tr>
+<td style="width: 87px;"></td>
+<td style="width: 220px;">InsertEmployee.java</td>
+<td style="width: 499px;">Saves the new employee into the database, creating an EmployeeData object, calling the classes created by EmployeeData.</td>
+</tr>
+<tr>
+<td style="width: 87px;"></td>
+<td style="width: 220px;">EmployeeData.java</td>
+<td style="width: 499px;">Creates the classes called by InsertEmployee to create a new employee.</td>
+</tr>
+<tr>
+<td style="width: 87px;"></td>
+<td style="width: 220px;">CheckUserAjax.java</td>
+<td style="width: 499px;">This servlet crates an employee object, with all the information of the employee, which is called by the checkAjax.js archive, with the ID that is given from the same .js file. If the ID doesn´t exist, it returns an empty object {}.</td>
+</tr>
+<tr>
+<td style="width: 87px;"></td>
+<td style="width: 220px;">checkAjax.js</td>
+<td style="width: 499px;">This .js file includes a function that sends an id to the CheckUserAjax.java servlet in order to create an object, based on that id. Depending on the response, it will print a message of availability or not, it will count the characters of the ID, and it will enable (if available) or disable (if unavailable) the button.</td>
+</tr>
+
+<td style="width: 806px;" colspan="3">Function 7:<b> Erasing an Employee </b></td>
+</tr>
+<tr>
+<td style="width: 87px;"></td>
+<td style="width: 719px;" colspan="2"><b>Description:</b><br>This function erases an employee from the database.<br><br>To see how this works, you can erase the employee <br>"<b>Pablo Lloves</b>"<br>from Cleaning.</td>
+</tr>
+<tr>
+<td style="width: 87px;"></td>
+<td style="width: 719px;" colspan="2"><b>Use:</b><br>The servlet calls one of the classs created in EmployeeData, that eliminates (through sql) a selected employee.<br><br>It uses: "EmployeeErase", and "EmployeeData".</td>
+</tr>
+<tr>
+<td style="width: 87px;"></td>
+<td style="width: 220px;">EmployeeErase.java</td>
+<td style="width: 499px;">Calls the class created in EmployeeData to eliminate the selected employee.</td>
+</tr>
+<tr>
+<td style="width: 87px;"></td>
+<td style="width: 220px;">EmployeeData.java</td>
+<td style="width: 499px;">Creates a class that eliminates the information of the database, in the Employees table.</td>
+</tr>
+
+
+<td style="width: 806px;" colspan="3">Function 8:<b> More Info (for an Employee) </b></td>
+</tr>
+<tr>
+<td style="width: 87px;"></td>
+<td style="width: 719px;" colspan="2"><b>Description:</b><br>This function displays a table with all the information about an employee, and lets the manager change the parameters that considers fitting. The manager can edit Name, Surname, Area, Days of work, and Zone where the employee works. This information is saved in the database.<br>To see how this works, you can edit <br>"<b>Pepper Potts</b>"<br> in Cleaning, and change her information.<br>To check that the names change in the Surveys table as well, you can add one "<b>s</b>" to Potts</td>
+</tr>
+<tr>
+<td style="width: 87px;"></td>
+<td style="width: 719px;" colspan="2"><b>Use:</b><br>The servlet calls one of the classes created in EmployeeData, that displays (through sql) a the information of a selected employee. After that, there is a possibility of updating the information. <br><br>It uses: "EmployeeMoreInfo", "EmployeeData", "SurveyData" and "EmployeeUpdate".</td>
+</tr>
+<tr>
+<td style="width: 87px;"></td>
+<td style="width: 220px;">EmployeeMoreInfo.java</td>
+<td style="width: 499px;">Calls the class created in EmployeeData to select al the information from the selected employee, displays it in a table, and allows to change the information trough inputs.</td>
+</tr>
+<tr>
+<td style="width: 87px;"></td>
+<td style="width: 220px;">EmployeeData.java<</td>
+<td style="width: 499px;">Creates a class that selects the information of an employee, and creates another one to update the changes (the same class as previously, on EmployeeEdit).</td>
+</tr>
+<tr>
+<td style="width: 87px;"></td>
+<td style="width: 220px;">Survey.java<</td>
+<td style="width: 499px;">Creates a class that selects name and surname of an employee from surveys, and creates another one to update the changes (the same class as previously, on EmployeeEdit).</td>
+</tr>
+<tr>
+<td style="width: 87px;"></td>
+<td style="width: 220px;">EmployeeUpdate.java</td>
+<td style="width: 499px;">Saves the changes into the database, creating objects of SurveyData and EmployeeData, calling the classes created by SurveyData and EmployeeData.</td>
+</tr>
+
+<td style="width: 806px;" colspan="3">Function 9:<b> Surveys display and Employee's Survey</b></td>
+</tr>
+<tr>
+<td style="width: 87px;"></td>
+<td style="width: 719px;" colspan="2"><b>Description:</b><br>This function prints all the surveys that have been made for the employees in the hotel. As it is not a manager task, he/she doesn't change, edit, or add any new survey, it is a display only, with the posibility to look for more information on each employee, by clicking on the name. Once the name is clicked, a new servlet opens, showing relevant survey information about the selected employee, such as the number of surveys that he/she has, the maximum review, and the minimum review, as well as an average of his/her reviews.<br>To each employees separate surveys, you can click on "<b>Tony</b>" who has more reviews, so you can see the functions work better.</td>
+</tr>
+<tr>
+<td style="width: 87px;"></td>
+<td style="width: 719px;" colspan="2"><b>Use:</b><br>The servlet calls one of the classes created in EmployeeData, that select (through sql) all the surveys that have been made.<br><br>It uses: "Surveys", "EmployeeSurvey", and "SurveyData".</td>
+</tr>
+<tr>
+<td style="width: 87px;"></td>
+<td style="width: 220px;">Surveys.java</td>
+<td style="width: 499px;">Prints all the surveys that have been made. It includes a link in the name of each of the employees that are reviewed in the surveys. This link takes the manager to the EmployeeSurvey servlet.<br></td>
+</tr>
+<tr>
+<td style="width: 87px;"></td>
+<td style="width: 220px;">EmployeeSurvey.java</td>
+<td style="width: 499px;">Prints all the surveys that have been made from one specific employee. It includes information about the maximum and minimum reviews, as well as an average of reviews and number of reviews.<br></td>
+</tr>
+<tr>
+<td style="width: 87px;"></td>
+<td style="width: 220px;">SurveyData.java</td>
+<td style="width: 499px;">Creates a class that selects all the information about the surveys from a the Surveys table of the database. It also creates a class that selects all the surveys with a specific ID, so that the surveys of one employee can be seen.<br></td>
+</tr>
+
+<!-- ///////////////////ROBERT FALGUERAS PEGUERA//////////////// -->
+
+<tr>
+<td style="width: 806px;" colspan="3"><h3>Robert Falgueras Peguera</h3></td>
+</tr>
+<tr>
+<td style="width: 806px;" colspan="3">140654</td>
+</tr>
+<tr> 
+<td style="width: 806px;" colspan="3">Click here to go to the <a href='Menu.html'>Menu</td>
+</tr>
+
+<td style="width: 806px;" colspan="3">Function 1:<b> Display Payments</b></td>
+</tr>
+<tr>
+<td style="width: 87px;"></td>
+<td style="width: 719px;" colspan="2"><b>Description:</b><br>This function prints all the payments that have been made or that have to be made by the clients. On this page, the manager can edit this payments to change the information by using the Payment Info button, were he is going to see where those expenses come from. <br>On the PaymentsInfo page, the manager is able to change the information by clicking the edit button.</td>
+</tr>
+<tr>
+<td style="width: 87px;"></td>
+<td style="width: 719px;" colspan="2"><b>Use:</b><br>The servlet calls one of the classes created in PaymentsData, that select (through sql) all the payments that have been made. By clicking on the link, it brings you to another servlet, called PaymentsInfo, and with javascript, you can edit those payments<br><br>It uses: "Payments", "PaymentsInfo", "PaymentsUpdate" and "editpayments.js".</td>
+</tr>
+<tr>
+<td style="width: 87px;"></td>
+<td style="width: 220px;">Payments.java</td>
+<td style="width: 499px;">Prints all the payments that have been made. It includes a link that takes you to another servlet called PaymentsInfo<br></td>
+</tr>
+<tr>
+<td style="width: 87px;"></td>
+<td style="width: 220px;">PaymentsInfo.java</td>
+<td style="width: 499px;">This servlet prints all the expenses of every client. The manager can see how much the client has spent on the hotel and he can edit that informatin by clicking the edit button.<br></td>
+</tr>
+<tr>
+<td style="width: 87px;"></td>
+<td style="width: 220px;">editpayments.js</td>
+<td style="width: 499px;">Creates a table inside a form. This form allows the manager to change the payments information.<br></td>
+</tr>
+<tr>
+<td style="width: 87px;"></td>
+<td style="width: 220px;">PaymentsUpdate.java</td>
+<td style="width: 499px;">This Servlet, gets the information that has been added on the editpayments.js and addeds that information on the database.<br></td>
+</tr>
+
+<td style="width: 806px;" colspan="3">Function 2:<b> Display Event Hall Reservations</b></td>
+</tr>
+<tr>
+<td style="width: 87px;"></td>
+<td style="width: 719px;" colspan="2"><b>Description:</b><br>This function prints all the reservations that have been made. The manager can see the more information about the reservation by clicking on moreinfo, he can also erase the reservations that had been canceled and also add new reservations.</td>
+</tr>
+<tr>
+<td style="width: 87px;"></td>
+<td style="width: 719px;" colspan="2"><b>Use:</b><br>The servlet calls one of the classes created in EventHallData, that selects (through sql) all the reservations that have been made. By clicking on the link, it brings the manager to another servlet, called EventHallReservationInfo, where the manager can see the information of the client that has done that reservation. By clickin on the Erase link, it calls another servlet called EraseEventHall, that delets from the database the reservation selected<br>Finally, the manager can add a new reservation by clicking the new reservation button that calls another servlet called NewReservationHall, that with the help of some Ajax and another servelt, AddHallReservation, add a new reservation to the database.<br><br>It uses: "EventHallResv", "EventHallReservationInfo", "EraseEventHall", "AddHallReservation", "NewReservationHall" and some Ajax "checkreservationHall", "CheckDayHall".</td>
+</tr>
+<tr>
+<td style="width: 87px;"></td>
+<td style="width: 220px;">EventHallReserv.java</td>
+<td style="width: 499px;">Prints all the reservation that have been made. It includes two links, the first one takes you to another servlet called EventHallReservationInfo and the second link, uses the EraseEventHall servlet to delet a reservation. There is also a new reservation button.<br></td>
+</tr>
+<tr>
+<td style="width: 87px;"></td>
+<td style="width: 220px;">EventHallReservationInfo.java</td>
+<td style="width: 499px;">This servlet prints the information of the client that has done the reservation. <br></td>
+</tr>
+<tr>
+<td style="width: 87px;"></td>
+<td style="width: 220px;">EraseEventHall.java</td>
+<td style="width: 499px;">Gets the ReservationID from the reservation that the manager wants to delete, and calls the EraseEventHall servlet to delete that reservation from the database<br></td>
+</tr>
+<tr>
+<td style="width: 87px;"></td>
+<td style="width: 220px;">NewReservationHall.java</td>
+<td style="width: 499px;">This Servlet, displays a form, where the manager can add a new reservation. While the manager adds the information, there is another code that is running at the same time checking if the information is okey.<br></td>
+</tr>
+<tr>
+<td style="width: 87px;"></td>
+<td style="width: 220px;">AddHallReservation.java</td>
+<td style="width: 499px;">This Servlet, gets the information from the NewReservationHall form, and adds that information on the database. <br></td>
+</tr>
+<tr>
+<td style="width: 87px;"></td>
+<td style="width: 220px;">checkreservationHall.js</td>
+<td style="width: 499px;">This is a .js file. It is in charge to display a message if the day that is being introduced on the NewReservationHall already exists. If that occurs, it displays an error message. If it does not exist, it displays and okey message. <br></td>
+</tr>
+<tr>
+<td style="width: 87px;"></td>
+<td style="width: 220px;">CheckDayHall.java</td>
+<td style="width: 499px;">This file is in charge to check if the day introduced on the NewReservationHall exists. This servlet looks for a reservation with the same day that the one introduced by the manager, if it exist, returns a vector with that information.<br></td>
+</tr>
+
+<td style="width: 806px;" colspan="3">Function 3:<b> Display Restaurant Reservations</b></td>
+</tr>
+<tr>
+<td style="width: 87px;"></td>
+<td style="width: 719px;" colspan="2"><b>Description:</b><br>This function prints all the reservations that have been made. On this page, the manager can see the information of every reservation: the reservation name, the amout of people, the contact...  <br>The manager is also able to erase the reservations that are canceled and also add new reservations.</td>
+</tr>
+<tr>
+<td style="width: 87px;"></td>
+<td style="width: 719px;" colspan="2"><b>Use:</b><br>The servlet calls one of the classes created in RestaurantData, that select (through sql) all the reservations that have been made. <br><br>It uses: "RestaurantReserv", "EraseRestaurantReserv", "NewReservation", "AddReservation", "CheckNumberRestriction" and "restrictionAjax".</td>
+</tr>
+<tr>
+<td style="width: 87px;"></td>
+<td style="width: 220px;">RestaurantReserv.java</td>
+<td style="width: 499px;">Prints all the Restaurant Reservations that have been made. It includes a button that takes you to another servlet called NewReservation where the manager can add reservations. There is also an erase link that deletes a reservation from the database.<br></td>
+</tr>
+<tr>
+<td style="width: 87px;"></td>
+<td style="width: 220px;">EraseRestaurantReserv.java</td>
+<td style="width: 499px;">This servlet gets the information of the selected reservation and deletes that reservation from the database.<br></td>
+</tr>
+<tr>
+<td style="width: 87px;"></td>
+<td style="width: 220px;">NewReservation.java</td>
+<td style="width: 499px;">This servlet displays a form, where the manager can add the information about a new reservation. By clicking the submit button, that information is added to the database, with the help of another servlet called AddReservation.<br></td>
+</tr>
+<tr>
+<td style="width: 87px;"></td>
+<td style="width: 220px;">AddReservation.java</td>
+<td style="width: 499px;">This Servlet, gets the information from the NewReservation servlet and adds that information on the database.<br></td>
+</tr>
+<tr>
+<td style="width: 87px;"></td>
+<td style="width: 220px;">restrictionAjax.js</td>
+<td style="width: 499px;">This is a .js file. It is in charge to display a message if the day that is being introduced on the NewReservation already exists. If that occurs, it displays an error message. If it does not exist, it displays and okey message.<br></td>
+</tr>
+<tr>
+<td style="width: 87px;"></td>
+<td style="width: 220px;">CheckNumberRestriction.java</td>
+<td style="width: 499px;">This file is in charge to check if the day introduced on the NewReservation servlet exists. This servlet looks for a reservation with the same day that the one introduced by the manager, if it exist, returns a vector with that information.<br></td>
+</tr>
+<td style="width: 806px;" colspan="3">Function 4:<b> Display RoomReservations</b></td>
+</tr>
+<tr>
+<td style="width: 87px;"></td>
+<td style="width: 719px;" colspan="2"><b>Description:</b><br>This function prints all the room reservations that have been done. On this page, the manager can see the information of every reservation: the reservation name, the amount of people, the type of room...  <br>The manager is also able look for more info by clicking the moreinfo link.</td>
+</tr>
+<tr>
+<td style="width: 87px;"></td>
+<td style="width: 719px;" colspan="2"><b>Use:</b><br>The servlet calls one of the classes created in RoomData, that select (through sql) all the reservations that have been made. <br><br>It uses: "RoomReserv", "RoomEdit", "RoomsUpdate" and "editroomreservation".</td>
+</tr>
+<tr>
+<td style="width: 87px;"></td>
+<td style="width: 220px;">RoomReserv.java</td>
+<td style="width: 499px;">Prints all the Room Reservations that have been made. It includes a link that takes you to another servlet called RoomEdit where the manager can see more information about the reservation.<br></td>
+</tr>
+<tr>
+<td style="width: 87px;"></td>
+<td style="width: 220px;">RoomEdit.java</td>
+<td style="width: 499px;">This servlet displays the information of the selected reservation and there is also and edit button that shows a table (with js) where the manager can edit the reservation information.<br></td>
+</tr>
+<tr>
+<td style="width: 87px;"></td>
+<td style="width: 220px;">editroomreservation.js</td>
+<td style="width: 499px;">This is a .js file. It is on the RoomEdit Servlet, and when the manager clicks the edit button displays a table that allows the manager to change the information from the reservation selected. <br></td>
+</tr>
+<tr>
+<td style="width: 87px;"></td>
+<td style="width: 220px;">RoomsUpdate.java</td>
+<td style="width: 499px;">This Servlet, gets the information from the editroomreservation.js and changes that information on the database.<br></td>
+</tr>
+
+
+
+
+</tbody>
+</table>
+<p></p>
+</body></html>
